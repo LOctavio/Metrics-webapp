@@ -1,9 +1,12 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import { getList } from '../../redux/homepage/homepage';
+import Items from './items';
 
 const HomePage = () => {
+  const items = useSelector((state) => state.homeReducer);
   const dispatch = useDispatch();
 
   const CountriesList = () => {
@@ -26,7 +29,17 @@ const HomePage = () => {
     CountriesList();
   }, []);
 
-  return (<h1>Home Page</h1>);
+  return (
+    <ul>
+      {items.map((item) => (
+        <Items
+          key={uuidv4()}
+          country={item.country}
+          confirmedCases={item.confirmed_cases}
+        />
+      ))}
+    </ul>
+  );
 };
 
 export default HomePage;
