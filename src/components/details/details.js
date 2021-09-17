@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Container } from 'react-bootstrap';
 import Items from './items';
 import { getList } from '../../redux/details/details';
 import Header from '../header';
@@ -10,11 +11,11 @@ import Header from '../header';
 const Default = () => {
   const items = useSelector((state) => state.detailsReducer);
   const dispatch = useDispatch();
-  let { slug } = useParams();
-  slug = slug.toLowerCase();
+  const { slug } = useParams();
+  const country = slug.split(' ').join('_').toLowerCase();
 
   const regionsList = () => {
-    const url = `https://api.covid19tracking.narrativa.com/api/2021-08-01/country/${slug}`;
+    const url = `https://api.covid19tracking.narrativa.com/api/2021-08-01/country/${country}`;
     axios.get(url)
       .then((response) => {
         const list = [];
@@ -38,23 +39,22 @@ const Default = () => {
 
   return (
     <>
-      <Header title={slug} buttonVisibility />
-      {() => {
-        if (items.length === 0) {
-          return (<h1>No regions info available</h1>);
-        }
-        return (
-          <ul>
-            {items.map((item) => (
-              <Items
-                key={uuidv4()}
-                region={item.region}
-                confirmedCases={item.confirmed_cases}
-              />
-            ))}
-          </ul>
-        );
-      }}
+      <Header title={slug} />
+      <Container className="regions-description">
+        <h3>{slug}</h3>
+      </Container>
+      <Container className="regions-label">
+        <span>STATS BY REGION</span>
+      </Container>
+      <Container className="regions-table">
+        {items.map((item) => (
+          <Items
+            key={uuidv4()}
+            region={item.region}
+            confirmedCases={item.confirmed_cases}
+          />
+        ))}
+      </Container>
     </>
   );
 };

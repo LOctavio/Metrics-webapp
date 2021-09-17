@@ -1,3 +1,85 @@
 body {
   margin: 0;
 }
+
+.container {
+  padding: 0;
+}
+
+.header {
+  background-color: #d04378;
+  color: white;
+}
+
+.back-button {
+  background-color: inherit;
+  color: inherit;
+  border: 0;
+}
+
+.title {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.icons {
+  text-align: center;
+}
+
+.countries-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.countries-table > button {
+  border: 0;
+  height: 150px;
+  color: white;
+}
+
+.countries-table > button:nth-child(4n-2),
+.countries-table > button:nth-child(4n-1) {
+  background-color: #cf4277;
+}
+
+.countries-table > button:nth-child(4n-3),
+.countries-table > button:nth-child(4n-0) {
+  background-color: #db4680;
+}
+
+.regions-table > .row {
+  color: white;
+  height: 80px;
+  padding: 0 20px;
+}
+
+.region {
+  line-height: 80px;
+}
+
+.region-cases {
+  line-height: 40px;
+}
+
+.regions-table > .row:nth-child(odd) {
+  background-color: #db4680;
+}
+
+.regions-table > .row:nth-child(even) {
+  background-color: #cf4277;
+}
+
+.countries-label,
+.regions-label {
+  padding: 0 20px;
+  color: white;
+  background-color: #df4782;
+}
+
+.countries-description,
+.regions-description {
+  padding: 50px;
+  text-align: center;
+  background-color: #fc5193;
+  color: white;
+}
