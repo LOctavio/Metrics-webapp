@@ -3,10 +3,9 @@ import { useHistory } from 'react-router-dom';
 
 const Items = (props) => {
   const { country, confirmedCases } = props;
-  const newCountry = country.split(' ').join('_');
   const history = useHistory();
   return (
-    <button type="button" onClick={() => history.push(`/details/${newCountry}`)}>
+    <button type="button" onClick={() => history.push(`/details/${country}`)}>
       <p>
         {country}
       </p>

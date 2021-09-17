@@ -11,11 +11,11 @@ import Header from '../header';
 const Default = () => {
   const items = useSelector((state) => state.detailsReducer);
   const dispatch = useDispatch();
-  let { slug } = useParams();
-  slug = slug.toLowerCase();
+  const { slug } = useParams();
+  const country = slug.split(' ').join('_').toLowerCase();
 
   const regionsList = () => {
-    const url = `https://api.covid19tracking.narrativa.com/api/2021-08-01/country/${slug}`;
+    const url = `https://api.covid19tracking.narrativa.com/api/2021-08-01/country/${country}`;
     axios.get(url)
       .then((response) => {
         const list = [];
@@ -40,6 +40,12 @@ const Default = () => {
   return (
     <>
       <Header title={slug} />
+      <Container className="regions-description">
+        <h3>{slug}</h3>
+      </Container>
+      <Container className="regions-label">
+        <span>STATS BY REGION</span>
+      </Container>
       <Container className="regions-table">
         {items.map((item) => (
           <Items

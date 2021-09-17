@@ -34,6 +34,12 @@ const HomePage = () => {
   return (
     <>
       <Header title="countries" />
+      <Container className="countries-description">
+        <h3>Confirmed cases of covid19 until 2021-08-01</h3>
+      </Container>
+      <Container className="countries-label">
+        <span>STATS BY COUNTRY</span>
+      </Container>
       <Container className="countries-table">
         {items.map((item) => (
           <Items

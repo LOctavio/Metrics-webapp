@@ -68,3 +68,18 @@ body {
 .regions-table > .row:nth-child(even) {
   background-color: #cf4277;
 }
+
+.countries-label,
+.regions-label {
+  padding: 0 20px;
+  color: white;
+  background-color: #df4782;
+}
+
+.countries-description,
+.regions-description {
+  padding: 50px;
+  text-align: center;
+  background-color: #fc5193;
+  color: white;
+}
