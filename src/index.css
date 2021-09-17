@@ -46,3 +46,25 @@ body {
 .countries-table > button:nth-child(4n-0) {
   background-color: #db4680;
 }
+
+.regions-table > .row {
+  color: white;
+  height: 80px;
+  padding: 0 20px;
+}
+
+.region {
+  line-height: 80px;
+}
+
+.region-cases {
+  line-height: 40px;
+}
+
+.regions-table > .row:nth-child(odd) {
+  background-color: #db4680;
+}
+
+.regions-table > .row:nth-child(even) {
+  background-color: #cf4277;
+}

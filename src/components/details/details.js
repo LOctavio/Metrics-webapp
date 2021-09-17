@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Container } from 'react-bootstrap';
 import Items from './items';
 import { getList } from '../../redux/details/details';
 import Header from '../header';
@@ -38,23 +39,16 @@ const Default = () => {
 
   return (
     <>
-      <Header title={slug} buttonVisibility />
-      {() => {
-        if (items.length === 0) {
-          return (<h1>No regions info available</h1>);
-        }
-        return (
-          <ul>
-            {items.map((item) => (
-              <Items
-                key={uuidv4()}
-                region={item.region}
-                confirmedCases={item.confirmed_cases}
-              />
-            ))}
-          </ul>
-        );
-      }}
+      <Header title={slug} />
+      <Container className="regions-table">
+        {items.map((item) => (
+          <Items
+            key={uuidv4()}
+            region={item.region}
+            confirmedCases={item.confirmed_cases}
+          />
+        ))}
+      </Container>
     </>
   );
 };
