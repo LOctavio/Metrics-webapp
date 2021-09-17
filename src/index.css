@@ -2,6 +2,10 @@ body {
   margin: 0;
 }
 
+.container {
+  padding: 0;
+}
+
 .header {
   background-color: #d04378;
   color: white;
@@ -20,4 +24,25 @@ body {
 
 .icons {
   text-align: center;
+}
+
+.countries-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.countries-table > button {
+  border: 0;
+  height: 150px;
+  color: white;
+}
+
+.countries-table > button:nth-child(4n-2),
+.countries-table > button:nth-child(4n-1) {
+  background-color: #cf4277;
+}
+
+.countries-table > button:nth-child(4n-3),
+.countries-table > button:nth-child(4n-0) {
+  background-color: #db4680;
 }

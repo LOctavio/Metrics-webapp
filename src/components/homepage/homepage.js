@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import { Container } from 'react-bootstrap';
 import { getList } from '../../redux/homepage/homepage';
 import Items from './items';
 import Header from '../header';
@@ -33,7 +34,7 @@ const HomePage = () => {
   return (
     <>
       <Header title="countries" />
-      <div>
+      <Container className="countries-table">
         {items.map((item) => (
           <Items
             key={uuidv4()}
@@ -41,7 +42,7 @@ const HomePage = () => {
             confirmedCases={item.confirmed_cases}
           />
         ))}
-      </div>
+      </Container>
     </>
   );
 };

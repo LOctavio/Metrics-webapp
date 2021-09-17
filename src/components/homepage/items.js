@@ -7,12 +7,13 @@ const Items = (props) => {
   const history = useHistory();
   return (
     <button type="button" onClick={() => history.push(`/details/${newCountry}`)}>
-      <span>
+      <p>
         {country}
-      </span>
-      <span>
+      </p>
+      <p>
+        {'Confirmed cases: '}
         {confirmedCases}
-      </span>
+      </p>
     </button>
   );
 };
