@@ -18,10 +18,12 @@ const HomePage = () => {
         let [countries] = [...Object.values(response.data.dates)];
         countries = countries.countries;
         Object.entries(countries).forEach((element) => {
-          list.push({
-            country: element[0],
-            confirmed_cases: element[1].today_confirmed,
-          });
+          if (element[1].regions.length !== 0) {
+            list.push({
+              country: element[0],
+              confirmed_cases: element[1].today_confirmed,
+            });
+          }
         });
         dispatch(getList(list));
       });
