@@ -15,7 +15,7 @@ ReactDOM.render(
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/details">
+          <Route path="/details/:slug">
             <Details />
           </Route>
         </Switch>
