@@ -1,4 +1,4 @@
-import reducer, { getList } from './details'
+import reducer, { getList } from './details';
 
 describe('test detailsReducer function', () => {
   const list = [
@@ -26,6 +26,4 @@ describe('test detailsReducer function', () => {
   it('store list in redux state', () => {
     expect(reducer([], getList(list))).toBe(list);
   });
-
-
 });

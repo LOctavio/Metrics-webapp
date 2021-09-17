@@ -1,4 +1,4 @@
-import reducer, { getList } from './homepage'
+import reducer, { getList } from './homepage';
 
 describe('test homeReducer function', () => {
   const list = [
