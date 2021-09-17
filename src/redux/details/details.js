@@ -10,7 +10,7 @@ export const getList = (list) => ({
 const detailsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_LIST:
-      return [...state, ...action.payload];
+      return action.payload;
     default:
       return state;
   }
