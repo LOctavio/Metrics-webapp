@@ -4,6 +4,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { getList } from '../../redux/homepage/homepage';
 import Items from './items';
+import Header from '../header';
 
 const HomePage = () => {
   const items = useSelector((state) => state.homeReducer);
@@ -30,15 +31,18 @@ const HomePage = () => {
   }, []);
 
   return (
-    <ul>
-      {items.map((item) => (
-        <Items
-          key={uuidv4()}
-          country={item.country}
-          confirmedCases={item.confirmed_cases}
-        />
-      ))}
-    </ul>
+    <>
+      <Header title="countries" />
+      <div>
+        {items.map((item) => (
+          <Items
+            key={uuidv4()}
+            country={item.country}
+            confirmedCases={item.confirmed_cases}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 
