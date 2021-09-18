@@ -2,8 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import { Container } from 'react-bootstrap';
-import { getList } from '../../redux/homepage/homepage';
+import {
+  Container, Row, InputGroup, FormControl, Button,
+} from 'react-bootstrap';
+import { getList, filterList } from '../../redux/homepage/homepage';
 import Items from './items';
 import Header from '../header';
 
@@ -37,7 +39,19 @@ const HomePage = () => {
     <>
       <Header title="countries" backButton />
       <Container className="countries-description">
-        <h3>Confirmed cases of covid19 until 2021-08-01</h3>
+        <Row>
+          <h3>Confirmed cases of covid19 until 2021-08-01</h3>
+        </Row>
+        <Row>
+          <InputGroup className="mb-3">
+            <FormControl
+              placeholder="Filter by country"
+            />
+            <Button variant="outline-light" onClick={(e) => dispatch(filterList(e.target.previousElementSibling.value))}>
+              Search
+            </Button>
+          </InputGroup>
+        </Row>
       </Container>
       <Container className="countries-label">
         <span>STATS BY COUNTRY</span>
@@ -48,6 +62,7 @@ const HomePage = () => {
             key={uuidv4()}
             country={item.country}
             confirmedCases={item.confirmed_cases}
+            visibility={item.visibility}
           />
         ))}
       </Container>
