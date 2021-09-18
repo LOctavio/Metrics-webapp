@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   Container, Row, InputGroup, FormControl, Button,
 } from 'react-bootstrap';
-import { getList } from '../../redux/homepage/homepage';
+import { getList, filterList } from '../../redux/homepage/homepage';
 import Items from './items';
 import Header from '../header';
 
@@ -47,7 +47,7 @@ const HomePage = () => {
             <FormControl
               placeholder="Filter by country"
             />
-            <Button variant="outline-light">
+            <Button variant="outline-light" onClick={(e) => dispatch(filterList(e.target.previousElementSibling.value))}>
               Search
             </Button>
           </InputGroup>
@@ -62,6 +62,7 @@ const HomePage = () => {
             key={uuidv4()}
             country={item.country}
             confirmedCases={item.confirmed_cases}
+            visibility={item.visibility}
           />
         ))}
       </Container>

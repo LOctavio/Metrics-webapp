@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 
 const Items = (props) => {
-  const { country, confirmedCases } = props;
+  const { country, confirmedCases, visibility } = props;
   const history = useHistory();
   return (
-    <button type="button" onClick={() => history.push(`/details/${country}`)}>
+    <button type="button" onClick={() => history.push(`/details/${country}`)} className={`${visibility ? '' : 'hide'}`}>
       <p>
         {country}
       </p>
@@ -17,9 +17,14 @@ const Items = (props) => {
   );
 };
 
+Items.defaultProps = {
+  visibility: true,
+};
+
 Items.propTypes = {
   country: PropTypes.string.isRequired,
   confirmedCases: PropTypes.number.isRequired,
+  visibility: PropTypes.bool,
 };
 
 export default Items;
