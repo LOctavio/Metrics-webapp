@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 import { BsFillMicFill, BsFillGearFill, BsChevronLeft } from 'react-icons/bs';
+import { useHistory } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Header = (props) => {
   const { title } = props;
+  const history = useHistory();
   return (
     <Container className="header">
       <Row className="justify-content-md-center">
         <Col className="d-flex align-items-center">
-          <button type="button" className="back-button">
+          <button type="button" className="back-button" onClick={() => history.push('/')}>
             <BsChevronLeft />
           </button>
         </Col>
