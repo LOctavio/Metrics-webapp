@@ -35,7 +35,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Header title="countries" />
+      <Header title="countries" backButton />
       <Container className="countries-description">
         <h3>Confirmed cases of covid19 until 2021-08-01</h3>
       </Container>

@@ -84,3 +84,7 @@ body {
   background-color: #fc5193;
   color: white;
 }
+
+.hide {
+  display: none;
+}

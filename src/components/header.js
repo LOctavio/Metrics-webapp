@@ -4,13 +4,14 @@ import { useHistory } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Header = (props) => {
-  const { title } = props;
+  const { title, backButton } = props;
   const history = useHistory();
+  console.log(backButton);
   return (
     <Container className="header">
       <Row className="justify-content-md-center">
         <Col className="d-flex align-items-center">
-          <button type="button" className="back-button" onClick={() => history.push('/')}>
+          <button type="button" className={`back-button ${backButton ? 'hide' : ''}`} onClick={() => history.push('/')}>
             <BsChevronLeft />
           </button>
         </Col>
@@ -32,6 +33,7 @@ const Header = (props) => {
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+  backButton: PropTypes.bool.isRequired,
 };
 
 export default Header;

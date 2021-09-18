@@ -39,7 +39,7 @@ const Default = () => {
 
   return (
     <>
-      <Header title={slug} />
+      <Header title={slug} backButton={false} />
       <Container className="regions-description">
         <h3>{slug}</h3>
       </Container>
