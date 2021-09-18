@@ -6,7 +6,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 const Header = (props) => {
   const { title, backButton } = props;
   const history = useHistory();
-  console.log(backButton);
   return (
     <Container className="header">
       <Row className="justify-content-md-center">
